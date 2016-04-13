@@ -1,11 +1,13 @@
 # Python-Growing
 
-## Python 学习笔记
 
 ### 学习资料
-[python部落](http://python.freelycode.com/)               
-[python中文学习](http://www.pythondoc.com/)          
+[Python部落](http://python.freelycode.com/)               
+[Python中文学习](http://www.pythondoc.com/)          
 
+
+### 项目
+[Flask搭建 Web App](https://github.com/leopardpan/Python-Growing/tree/master/Flask)
 
 
 持续更新中...
