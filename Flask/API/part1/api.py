@@ -42,7 +42,15 @@ class Todo(Resource):
 #   shows a list of all todos, and lets you POST to add new tasks
 class TodoList(Resource):
     def get(self):
-        return TODOS
+        # return TODOS
+        file_object = open('test.json')
+        try:
+            all_the_text = file_object.read( )
+            # print(all_the_text)
+            return all_the_text
+        finally:
+            file_object.close( )
+
 
     def post(self):
         args = parser.parse_args()
