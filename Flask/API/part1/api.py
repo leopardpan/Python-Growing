@@ -42,15 +42,7 @@ class Todo(Resource):
 #   shows a list of all todos, and lets you POST to add new tasks
 class TodoList(Resource):
     def get(self):
-        # return TODOS
-        file_object = open('test.json')
-        try:
-            all_the_text = file_object.read( )
-            # print(all_the_text)
-            return all_the_text
-        finally:
-            file_object.close( )
-
+        return TODOS
 
     def post(self):
         args = parser.parse_args()
@@ -59,12 +51,20 @@ class TodoList(Resource):
         TODOS[todo_id] = {'task': args['task']}
         return TODOS[todo_id], 201
 
+class Json(Resource):
+    def get(self):
+        file_object = open('test.json')
+        try:
+            all_the_text = file_object.read( )
+            # print(all_the_text)
+            return all_the_text
+
 ##
 ## Actually setup the Api resource routing here
 ##
+api.add_resource(Json, '/json')
 api.add_resource(TodoList, '/todos')
 api.add_resource(Todo, '/todos/<todo_id>')
-
 
 if __name__ == '__main__':
     app.run(host='0.0.0.0',port=4000,debug=True)
