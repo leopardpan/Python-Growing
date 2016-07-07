@@ -10,9 +10,11 @@ def hello_world():
 @app.route('/api', methods=['POST', 'GET'])
 def api():
     if request.method == 'POST':
-        print request.json  
-        db = TinyDB('db.json')
-        db.insert(request.json)
+        print '>>>>>>>>>>>>>>>>>> get message <<<<<<<<<<<<<<<<<<<<<'  
+        print request.headers
+    	print request.form    	    	
+        # db = TinyDB('db.json')
+        # db.insert(request.json)
         return "POST Success", 200
     else:
         return "GET Success", 200
